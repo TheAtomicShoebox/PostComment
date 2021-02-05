@@ -9,6 +9,6 @@ namespace PostComment.Data
 {
     public class Reply : Comment
     {
-        
+        //comment
     }
 }
