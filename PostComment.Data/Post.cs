@@ -17,7 +17,7 @@ namespace PostComment.Data
 
         [Required]
         public string Text { get; set; }
-        
+      
         public virtual List<Comment> Comment { get; set; }
 
         [Required]
