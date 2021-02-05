@@ -80,6 +80,10 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Key.cs" />
+>>>>>>> Post class
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply.cs" />
