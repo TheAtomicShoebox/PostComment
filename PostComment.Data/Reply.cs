@@ -4,7 +4,7 @@ namespace PostComment.Data
 {
     public class Reply : Comment
     {
-        public Reply()
+        public Reply() : base()
         {
 
         }
