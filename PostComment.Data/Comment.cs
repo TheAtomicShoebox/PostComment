@@ -23,7 +23,7 @@ namespace PostComment.Data
 
         public virtual List<Reply> ReplyChain { get; set; }
 
-        public Comment(int id, string text, Guid _userId)
+        public Comment()
         {
             ReplyChain = new List<Reply>();
         }
