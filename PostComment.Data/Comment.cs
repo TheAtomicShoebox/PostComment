@@ -21,7 +21,7 @@ namespace PostComment.Data
 
         public virtual Post Post { get; set; }
 
-        public virtual List<Reply> ReplyChain { get; set; }
+        public virtual ICollection<Reply> ReplyChain { get; set; }
 
         public Comment()
         {

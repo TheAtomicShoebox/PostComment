@@ -11,7 +11,7 @@ namespace PostComment.Models
         public Guid Author { get; set; }
         public int PostId { get; set; }
         public virtual Post Post { get; set; }
-        public virtual List<Reply> ReplyChain { get; set; }
+        public virtual ICollection<Reply> ReplyChain { get; set; }
 
         public CommentMessage()
         {

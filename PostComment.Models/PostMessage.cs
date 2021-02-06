@@ -9,7 +9,7 @@ namespace PostComment.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
-        public virtual List<Comment> Comment { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
         public Guid Author { get; set; }
 
         public PostMessage()

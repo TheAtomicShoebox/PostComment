@@ -87,7 +87,7 @@ namespace PostComment.Models
             }
         }
 
-        public List<Reply> GetReplies(int id)
+        public ICollection<Reply> GetReplies(int id)
         {
             var comment = GetCommentById(id);
             return comment.ReplyChain;
