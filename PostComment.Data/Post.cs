@@ -20,7 +20,7 @@ namespace PostComment.Data
         [Required]
         public Guid Author { get; set; }
 
-        public Post(int id, string text, Guid _userId)
+        public Post()
         {
             Comment = new List<Comment>();
         }
