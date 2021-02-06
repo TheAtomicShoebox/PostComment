@@ -58,8 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommentCreate.cs" />
+    <Compile Include="CommentMessage.cs" />
     <Compile Include="CommentService.cs" />
     <Compile Include="PostCreate.cs" />
+    <Compile Include="PostMessage.cs" />
     <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReplyCreate.cs" />

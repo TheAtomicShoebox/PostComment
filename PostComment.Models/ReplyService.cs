@@ -13,15 +13,30 @@ namespace PostComment.Models
             _userId = userId;
         }
 
-        public bool CreateReply(Post post, Comment comment, ReplyCreate model)
+        public bool CreateReply(PostMessage post, CommentMessage comment, ReplyCreate model)
         {
             var entity =
                 new Reply()
                 {
                     Author = _userId,
-                    Comment = comment,
+                    Comment = new Comment()
+                    {
+                        Id = comment.Id,
+                        Author = comment.Author,
+                        Post = comment.Post,
+                        PostId = comment.PostId,
+                        ReplyChain = comment.ReplyChain,
+                        Text = comment.Text
+                    },
                     ParentCommentId = comment.Id,
-                    Post = post,
+                    Post = new Post()
+                    {
+                        Author = post.Author,
+                        Comment = post.Comment,
+                        Id = post.Id,
+                        Text = post.Text,
+                        Title = post.Title
+                    },
                     PostId = post.Id,
                     Text = model.Text
                 };
