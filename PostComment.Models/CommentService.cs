@@ -81,5 +81,11 @@ namespace PostComment.Models
                 };
             }
         }
+
+        public List<Reply> GetReplies(int id)
+        {
+            var comment = GetCommentById(id);
+            return comment.ReplyChain;
+        }
     }
 }

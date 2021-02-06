@@ -52,5 +52,18 @@ namespace PostComment.WebAPI.Controllers
             var comment = commentService.GetCommentById(id);
             return Ok(comment);
         }
+
+        // GET comment replies api/Comment/:CommentId/:replies
+        [Route("api/Comment/{id}/{replies}")]
+        [HttpGet]
+        public IHttpActionResult GetCommentReplies([FromUri] int id, [FromUri] bool replies)
+        {
+            if (!replies)
+                return Get(id);
+
+            var commentService = CreateCommentService();
+            var replyChain = commentService.GetReplies(id);
+            return Ok(replyChain);
+        }
     }
 }
