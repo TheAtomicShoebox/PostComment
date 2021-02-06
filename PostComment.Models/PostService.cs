@@ -42,7 +42,7 @@ namespace PostComment.Models
                     ctx
                         .Posts
                         .Where(e => e.Author == _userId)
-                        .Select(e => new Post
+                        .Select(e => new Post()
                         {
                             Title = e.Title,
                             Text = e.Text,
