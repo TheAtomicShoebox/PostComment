@@ -1,31 +1,31 @@
+﻿using PostComment.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PostComment.Data
+namespace PostComment.Models
 {
-    public class Comment
+    public class CommentMessage
     {
-        [Key]
         public int Id { get; set; }
-
-        [Required]
         public string Text { get; set; }
-
-        [Required]
         public Guid Author { get; set; }
-
-        [ForeignKey(nameof(Post))]
         public int PostId { get; set; }
-
         public virtual Post Post { get; set; }
-
         public virtual ICollection<Reply> ReplyChain { get; set; }
 
-        public Comment()
+        public CommentMessage()
         {
             ReplyChain = new List<Reply>();
+        }
+
+        public CommentMessage(Comment comment)
+        {
+            Id = comment.Id;
+            Author = comment.Author;
+            Text = comment.Text;
+            PostId = comment.PostId;
+            Post = comment.Post;
+            ReplyChain = comment.ReplyChain;
         }
     }
 }

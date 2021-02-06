@@ -28,6 +28,7 @@ namespace PostComment.WebAPI.Controllers
             return postService;
         }
 
+        [Authorize]
         // POST api/Reply
         public IHttpActionResult Post(ReplyCreate reply)
         {

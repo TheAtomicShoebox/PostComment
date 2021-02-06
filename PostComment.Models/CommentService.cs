@@ -3,8 +3,6 @@ using PostComment.WebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PostComment.Models
 {
@@ -17,14 +15,21 @@ namespace PostComment.Models
             _userId = userId;
         }
 
-        public bool CreateComment(Post post, CommentCreate model)
+        public bool CreateComment(PostMessage post, CommentCreate model)
         {
             var entity =
                 new Comment()
                 {
                     Text = model.Text,
                     Author = _userId,
-                    Post = post,
+                    Post = new Post()
+                    {
+                        Author = post.Author,
+                        Id = post.Id,
+                        Comment = post.Comment,
+                        Text = post.Text,
+                        Title = post.Title
+                    },
                     PostId = post.Id
                 };
             using(var ctx = new ApplicationDbContext())
@@ -62,7 +67,7 @@ namespace PostComment.Models
             }
         }
 
-        public Comment GetCommentById(int id)
+        public CommentMessage GetCommentById(int id)
         {
             using(var ctx = new ApplicationDbContext())
             {
@@ -70,7 +75,7 @@ namespace PostComment.Models
                     ctx
                         .Comments
                         .Single(e => e.Author == _userId && e.Id == id);
-                return new Comment
+                return new CommentMessage
                 {
                     Id = entity.Id,
                     Author = entity.Author,
@@ -82,7 +87,7 @@ namespace PostComment.Models
             }
         }
 
-        public List<Reply> GetReplies(int id)
+        public ICollection<Reply> GetReplies(int id)
         {
             var comment = GetCommentById(id);
             return comment.ReplyChain;
