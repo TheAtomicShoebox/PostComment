@@ -15,6 +15,7 @@ namespace PostComment.WebAPI.Controllers
         }
         
         // Get api/Post
+        [Authorize]
         public IHttpActionResult Get()
         {
             PostService postService = CreatePostService();
@@ -22,6 +23,7 @@ namespace PostComment.WebAPI.Controllers
             return Ok(posts);
         }
 
+        [Authorize]
         // Get api/Post/:PostId
         public IHttpActionResult Get(int id)
         {
@@ -30,6 +32,7 @@ namespace PostComment.WebAPI.Controllers
             return Ok(post);
         }
 
+        [Authorize]
         // POST api/Post
         public IHttpActionResult Post(PostCreate post)
         {

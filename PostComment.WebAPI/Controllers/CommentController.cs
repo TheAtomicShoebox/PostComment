@@ -21,6 +21,7 @@ namespace PostComment.WebAPI.Controllers
             return postService;
         }
 
+        [Authorize]
         // POST api/Comment
         public IHttpActionResult Post(CommentCreate comment)
         {
@@ -37,6 +38,7 @@ namespace PostComment.WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize]
         // GET all api/Comment
         public IHttpActionResult Get()
         {
@@ -45,6 +47,7 @@ namespace PostComment.WebAPI.Controllers
             return Ok(comments);
         }
 
+        [Authorize]
         // GET by id api/Comment/:CommentId
         public IHttpActionResult Get(int id)
         {
@@ -53,6 +56,7 @@ namespace PostComment.WebAPI.Controllers
             return Ok(comment);
         }
 
+        [Authorize]
         // GET comment replies api/Comment/:CommentId/:replies
         [Route("api/Comment/{id}/{replies}")]
         [HttpGet]
